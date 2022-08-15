@@ -11,7 +11,7 @@ function getBaseUrl() {
   if (typeof window !== 'undefined') {
     return '';
   }
-  
+
   // reference for vercel.com
   if (process.env.VERCEL_URL) {
     return `https://${process.env.VERCEL_URL}`;

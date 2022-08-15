@@ -6,9 +6,17 @@ const Home: NextPage = () => {
 
   if (isLoading || !data) return <div>Loading...</div>
 
-  console.log(data)
-
-  return <div>{data[0]?.question}</div>
+  return (
+    <div>
+      {data.map(question => {
+        return (
+          <div key={question.id}>
+            {question.question}
+          </div>
+        )
+      })}
+    </div>
+  )
 }
 
 export default Home
