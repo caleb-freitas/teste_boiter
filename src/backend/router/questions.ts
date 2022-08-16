@@ -1,4 +1,3 @@
-import * as trpc from '@trpc/server';
 import { z } from 'zod';
 import { prisma } from "../../db/client"
 import { createRouter } from './context';
@@ -6,6 +5,7 @@ import { createRouter } from './context';
 export const questionRouter = createRouter()
   .query("get-all-my-questions", {
     async resolve({ ctx }) {
+      if (!ctx.token) return []
       return await prisma.pollQuestion.findMany({
         where: {
           ownerToken: {

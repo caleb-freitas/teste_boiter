@@ -1,4 +1,5 @@
 import { withTRPC } from '@trpc/next';
+import { TRPC_ERROR_CODES_BY_NUMBER } from '@trpc/server/rpc';
 import { AppType } from 'next/dist/shared/lib/utils';
 import superjson from "superjson"
 import { AppRouter } from '../backend/router';
@@ -24,8 +25,13 @@ export default withTRPC<AppRouter>({
   config({ ctx }) {
     return {
       url: `${getBaseUrl()}/api/trpc`,
-      transformer: superjson
+      transformer: superjson,
+      headers() {
+        return {
+          cookie: ctx?.req?.headers.cookie
+        }
+      }
     };
   },
-  ssr: false,
+  ssr: true,
 })(MyApp);
