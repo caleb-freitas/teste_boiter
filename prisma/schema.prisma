@@ -17,6 +17,8 @@ model PollQuestion {
   options    Json
   ownerToken String
   Vote       Vote[]
+
+  @@index([ownerToken])
 }
 
 model Vote {
