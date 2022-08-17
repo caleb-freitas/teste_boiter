@@ -3,7 +3,6 @@ import type { NextRequest } from 'next/server'
 import { nanoid } from 'nanoid'
 
 export function middleware(request: NextRequest) {
-  console.log(request.cookies)
   // getting cookies from the request
   const cookie = request.cookies.get("poll-token")
 
