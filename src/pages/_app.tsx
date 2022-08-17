@@ -1,8 +1,8 @@
 import { withTRPC } from '@trpc/next';
-import { TRPC_ERROR_CODES_BY_NUMBER } from '@trpc/server/rpc';
 import { AppType } from 'next/dist/shared/lib/utils';
 import superjson from "superjson"
 import { AppRouter } from '../backend/router';
+import "../styles/globals.css"
 
 const MyApp: AppType = ({ Component, pageProps }) => {
   return <Component {...pageProps} />;
